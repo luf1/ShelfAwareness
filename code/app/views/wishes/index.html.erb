@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Catalog</h1>
+
+<%= link_to 'Homepage', welcome_index_path %><br> 
+<%= link_to 'New Wish',  new_wish_path %><br>
+
+<p>This is your current Wishlist.</p>
+
+<table style="width:100%">
+  <colgroup>
+    <col>
+    <col>
+    <col width="3">
+    <col width="3">
+    <col width="3">
+  </colgroup>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th colspan="3">Options</th>
+  <tr>
+
+  <% @wishes.each do |wish| %>
+    <tr>
+      <td><%= wish.title %></td>
+      <td><%= wish.author %></td>
+      <td><%= link_to 'Show', wish_path(wish) %></td>
+      <td><%= link_to 'Edit', edit_wish_path(wish) %></td>
+      <td><%= link_to 'Delete', book_path(wish),
+              method: :delete,
+              data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+</body>
+</html>
+

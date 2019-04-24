@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :genre
       t.text :quotes
       t.text :notes
-
+      t.text :status
       t.timestamps
     end
   end
