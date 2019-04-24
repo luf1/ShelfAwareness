@@ -11,7 +11,7 @@ table, th, td {
 <body>
 
 
-<h1>Catalog</h1>
+<h1>My Bookshelf</h1>
 
 <%= link_to 'Homepage', welcome_index_path %><br> 
 <%= link_to 'New Book',  new_book_path %><br>
@@ -21,6 +21,7 @@ table, th, td {
     <th>Title</th>
     <th>Author</th>
     <th>Genre</th>
+    <th>Status</th>
     <th></th>
   <tr>
 
@@ -29,6 +30,7 @@ table, th, td {
       <td><%= book.title %></td>
       <td><%= book.author %></td>
       <td><%= book.genre %></td>
+      <td><%= book.progress %></td>
       <td><%= link_to 'Show', book_path(book) %></td>
       <td><%= link_to 'Edit', edit_book_path(book) %></td>
       <td><%= link_to 'Delete', book_path(book),
