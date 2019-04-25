@@ -5,24 +5,38 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 15px;
 }
 </style>
 </head>
 <body>
 
+<h1>ShelfAwareness</h1>
+<h2>My Bookshelf</h2>
 
-<h1>My Bookshelf</h1>
+<%= link_to 'Homepage', welcome_index_path %>
+<%= link_to 'Wishlist', wishes_path %>
+<%= link_to 'Donors', donors_path %><br>
 
-<%= link_to 'Homepage', welcome_index_path %><br> 
+<p>This is your current bookshelf. Here, you can see all of the books you have read, are reading, or intend to read!</p>
+<br>
 <%= link_to 'New Book',  new_book_path %><br>
-
 <table style="width:100%">
+  <colgroup>
+    <col>
+    <col>
+    <col>
+    <col>
+    <col width="3">
+    <col width="3">
+    <col width="3">
+  </colgroup>
   <tr>
     <th>Title</th>
     <th>Author</th>
     <th>Genre</th>
     <th>Status</th>
-    <th></th>
+    <th colspan="3">Options</th>
   <tr>
 
   <% @books.each do |book| %>
@@ -30,7 +44,7 @@ table, th, td {
       <td><%= book.title %></td>
       <td><%= book.author %></td>
       <td><%= book.genre %></td>
-      <td><%= book.progress %></td>
+      <td><%= book.status %></td>
       <td><%= link_to 'Show', book_path(book) %></td>
       <td><%= link_to 'Edit', edit_book_path(book) %></td>
       <td><%= link_to 'Delete', book_path(book),

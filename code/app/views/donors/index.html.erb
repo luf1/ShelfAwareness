@@ -11,40 +11,32 @@ table, th, td {
 </head>
 <body>
 
-
 <h1>ShelfAwareness</h1>
-<h2>Wishlist</h2>
+<h2>Donor Page</h2>
 
 <%= link_to 'Homepage', welcome_index_path %>
 <%= link_to 'Bookshelf', books_path %>
-<%= link_to 'Donors', donors_path %>
+<%= link_to 'Wishlist', wishes_path %><br>
 
-<p>This is your current Wishlist.</p>
-<br>
-<%= link_to 'New Wish',  new_wish_path %><br>
+<p>These are all of the unfulfilled wishes for books. Select one to donate it to someone who wants it!</p>
+
 <table style="width:100%">
   <colgroup>
     <col>
     <col>
     <col width="3">
-    <col width="3">
-    <col width="3">
   </colgroup>
   <tr>
     <th>Title</th>
     <th>Author</th>
-    <th colspan="3">Options</th>
+    <th>Options</th>
   <tr>
 
   <% @wishes.each do |wish| %>
     <tr>
       <td><%= wish.title %></td>
       <td><%= wish.author %></td>
-      <td><%= link_to 'Show', wish_path(wish) %></td>
-      <td><%= link_to 'Edit', edit_wish_path(wish) %></td>
-      <td><%= link_to 'Delete', book_path(wish),
-              method: :delete,
-              data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
+      <td><%= link_to 'Donate', new_donor_path %><br>
     </tr>
   <% end %>
 </table>

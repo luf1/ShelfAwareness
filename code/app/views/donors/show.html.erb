@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @donor.name %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @donor.message %>
+</p>
+
+<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<%= link_to 'Back', donors_path %>
